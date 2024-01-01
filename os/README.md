@@ -43,7 +43,6 @@ The script iterates through the photos in the `ADD_PHOTOS_HERE/` folder, applies
 
 ## Structure
 
-- `aggregate_analysis.ipynb`: Jupyter notebook containing the analysis script.
+- `image_analysis.ipynb`: Python file containing the analysis script.
 - `LICENSE`: Choose an open-source license for your project.
 - `README.md`: Instructions and information about the project.
-- `.gitignore`: Specify files and folders to be ignored by Git (e.g., `__pycache__/`, `.ipynb_checkpoints/`, etc.).

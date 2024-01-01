@@ -190,3 +190,34 @@ def draw_yellow_convex_hull(process, input_path, output_path, blur=(501,501), sm
     # Save the result
     process.save(output_path)
     return smoothed_area
+
+for file_name in os.listdir(jpg_data):
+  if not file_name.startswith('.'):
+    start = jpg_data + file_name
+    output = color_correction + file_name
+    output1 = choose_cell + file_name
+    output2 = large_bound + file_name
+    output3 = choose_cell2 + file_name
+    final = small_bound + file_name
+
+    # Removes all color from image besides yellow
+    yellow_outline(start, output)
+
+    # Decrease threshold to increase tendrils included; increase threshold for a tighter enclosure
+    yellow_connected_regions(output, output1, threshold = 4, connectivity=20)
+
+    # Increase blur to make edges rounder; however, time increases exponentially; also, decrease epsilon to have more tight boundary edges
+    large_area = draw_yellow_convex_hull(start, output1, output2, blur=(109,109), epsilon0=0.001, smooth_curve=0.5)
+
+    # Decrease threshold to increase tendrils included; increase threshold for a tighter enclosure
+    yellow_connected_regions(output, output3, threshold=60)
+
+    # Increase blur to make edges rounder; set epsilon if needed
+    small_area = draw_yellow_convex_hull(output2, output3, final, blur=(9,9))
+
+    with open(result, 'a', newline='') as csvfile:
+        fieldnames = ['File Name', 'Small Area (pixel)', 'Large Area (pixel)','Pixel Scale', 'Micron Scale', 'Small Area (micron)', 'Large Area (micron)']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        # Append new row to the CSV file
+        writer.writerow({'File Name': file_name[:-4], 'Large Area (pixel)': large_area, 'Small Area (pixel)': small_area})

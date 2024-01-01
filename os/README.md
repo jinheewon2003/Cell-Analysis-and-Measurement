@@ -1,45 +1,56 @@
-## Usage
+## Usage Instructions
 
-### 1. Set Up Google Drive Folder
+### 1. Download the Script
 
-Specify the folder name you want to create. The script creates a new folder system in Google Drive with the following structure:
+1. Download the script file [here](link-to-your-script-file).
 
-- `results.csv`: CSV file to store analysis results.
-- `ADD_PHOTOS_HERE/`: Placeholder folder for your input photos.
-- `color_correction/`: Folder for images after removing all colors except yellow.
-- `choose_cell/`: Folder for images with connected yellow regions.
-- `large_bound/`: Folder for images with convex hulls around the largest yellow region.
-- `choose_cell2/`: Folder for images with connected yellow regions after the first analysis.
-- `RESULTING_PHOTOS/`: Folder for images with convex hulls around smaller yellow regions.
+### 2. Prerequisites
 
-### 2. Yellow Outline Detection
+Ensure you have the following libraries installed on your local machine:
 
-The `yellow_outline` function processes input photos, removes all colors except yellow, and saves the result in the `color_correction` folder.
+- Pillow (PIL): `pip install pillow`
+- NumPy: `pip install numpy`
+- SciPy: `pip install scipy`
+- OpenCV: `pip install opencv-python`
 
-### 3. Yellow Connected Regions
+### 3. Configure File Paths
 
-The `yellow_connected_regions` function identifies connected yellow regions in images, and the result is saved in the `choose_cell` and `choose_cell2` folders.
+1. Open the downloaded script file in a text editor.
 
-### 4. Yellow Convex Hulls
+2. Locate the following variables at the beginning of the script:
 
-The `draw_yellow_convex_hull` function draws convex hulls around yellow regions and saves the result in the `large_bound` and `RESULTING_PHOTOS` folders. Adjust parameters such as blur, epsilon, and smooth_curve for desired results.
+    ```python
+    # Specify the folder name you want to create
+    folder_name = "aggregate_analysis"
 
-### 5. Image Analysis Loop
+    # Set the path of your photos that you analyze
+    jpg_data = "./folder_location"
 
-The script iterates through the photos in the `ADD_PHOTOS_HERE/` folder, applies the outlined processes, and updates the `results.csv` file with the analysis results.
-
-**Note:** Add your photos to the `ADD_PHOTOS_HERE/` folder before running the script.
-
-## Getting Started
-
-1. Clone this repository:
-
-    ```bash
-    git clone https://github.com/your-username/your-repository.git
+    # Set the local folder path for results
+    folder_path = "./" + folder_name + "/"
     ```
 
-2. Upload your photos to the `ADD_PHOTOS_HERE/` folder.
-3. Run the script in a Jupyter notebook or Google Colab environment.
+3. Update `folder_name` to the name of the folder you want to be created.
+4. Update `jpg_data` to the directory path where your photos are located.
+5. Update `folder_path` to the local directory path where you want the folder of results to be created.
+
+### 4. Run the Script
+
+1. Open a terminal and navigate to the folder containing the downloaded script:
+
+    ```bash
+    cd /path/to/downloaded/script
+    ```
+
+2. Run the script:
+
+    ```bash
+    python script_name.py
+    ```
+
+Replace `script_name.py` with the actual name of your downloaded script file.
+
+The script will process the photos, extract yellow regions, identify connected components, draw convex hulls, and save the results in the specified local folder.
 
 ## Structure
 

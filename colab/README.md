@@ -1,6 +1,3 @@
-# Image Analysis of Aggregate Cell Clusters
-This script performs image analysis on a set of photos stored in a specified folder. It utilizes Python with the help of the OpenCV and NumPy libraries to process images and extract information about yellow regions.
-
 ## Usage
 
 ### 1. Set Up Google Drive Folder
@@ -37,13 +34,6 @@ The script iterates through the photos in the `ADD_PHOTOS_HERE/` folder, applies
 
 **Note:** Add your photos to the `ADD_PHOTOS_HERE/` folder before running the last block of the script.
 
-## Requirements
-
-- Python 3.x
-- OpenCV
-- NumPy
-- PIL (Python Imaging Library)
-
 ## Getting Started
 
 1. Clone this repository:
@@ -62,7 +52,3 @@ The script iterates through the photos in the `ADD_PHOTOS_HERE/` folder, applies
 - `LICENSE`: Choose an open-source license for your project.
 - `README.md`: Instructions and information about the project.
 - `.gitignore`: Specify files and folders to be ignored by Git (e.g., `__pycache__/`, `.ipynb_checkpoints/`, etc.).
-
-## Contribution
-
-Feel free to contribute or suggest improvements by creating issues or pull requests.

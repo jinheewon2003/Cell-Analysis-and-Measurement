@@ -2,7 +2,7 @@
 
 ### 1. Download the Script
 
-1. Download the script file [here](link-to-your-script-file).
+1. Download the script file [here](https://github.com/jinheewon2003/Cell-Analysis-and-Measurement/blob/main/os/image_analysis.py).
 
 ### 2. Prerequisites
 
